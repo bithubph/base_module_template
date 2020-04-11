@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint **/*.js",
-    "lint:fix": "prettier-eslint --write **/*js"
+    "lint:fix": "prettier-eslint --write **/*js",
+    "clean": "rm -rf dist && mkdir dist",
+    "build-server": "babel src --out-dir dist",
+    "build": "npm run clean && npm run build-server",
+    "start:dev": "nodemon ./src/app.js --exec babel-node",
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -38,5 +43,13 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/runtime": "^7.9.2"
   }
 }
