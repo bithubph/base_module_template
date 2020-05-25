@@ -1,0 +1,8 @@
+const path = require('path');
+
+module.exports = {
+  "config": path.resolve('./src/DataAccessLayer/configs/config.js'),
+  "models-path": path.resolve('./src/DataAccessLayer/models'),
+  "seeders-path": path.resolve('./src/DataAccessLayer/seeders'),
+  "migrations-path": path.resolve('./src/DataAccessLayer/migrations')
+};
